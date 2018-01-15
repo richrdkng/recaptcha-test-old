@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>reCAPTCHA Test</title>
+</head>
+<body>
+    <div class="g-recaptcha"
+         data-sitekey="key"
+         data-callback="onCaptchaSuccess"
+         data-expired-callback="onCaptchaExpired"
+         data-error-callback="onCaptchaError"
+    ></div>
+    <script>
+        function onCaptchaLoad() {
+            console.log('onCaptchaLoad', arguments)
+        }
+
+        function onCaptchaSuccess() {
+            console.log('onCaptchaSuccess', arguments)
+        }
+
+        function onCaptchaExpired() {
+            console.log('onCaptchaExpired', arguments)
+        }
+
+        function onCaptchaError() {
+            console.log('onCaptchaError', arguments)
+        }
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onCaptchaLoad" async defer></script>
+</body>
+</html>
