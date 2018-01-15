@@ -8,6 +8,12 @@
     <title>reCAPTCHA Test</title>
 </head>
 <body>
+    <h1>Google reCAPTCHA Test</h1>
+
+    <p>
+        For available events, check out the <a href="https://github.com/richardszkcs/recaptcha-test">README</a>.
+    </p>
+
     <div class="g-recaptcha"
          data-sitekey="6Ldua2cUAAAAADQagbgv7vhmg5dY88UVk9Paa7CP"
          data-callback="onCaptchaSuccess"
@@ -15,20 +21,24 @@
          data-error-callback="onCaptchaError"
     ></div>
     <script>
+        // fired, when the reCAPTCHA is loaded
         function onCaptchaLoad() {
-            console.log('onCaptchaLoad', arguments)
+            console.log('onCaptchaLoad')
         }
 
-        function onCaptchaSuccess() {
-            console.log('onCaptchaSuccess', arguments)
+        // fired, when the user submits a successful reCAPTCHA response
+        function onCaptchaSuccess(token) {
+            console.log('onCaptchaSuccess', token)
         }
 
+        // fired, when the reCAPTCHA response expires and the user needs to re-verify
         function onCaptchaExpired() {
-            console.log('onCaptchaExpired', arguments)
+            console.log('onCaptchaExpired')
         }
 
+        // fired, when the reCAPTCHA encounters an error
         function onCaptchaError() {
-            console.log('onCaptchaError', arguments)
+            console.log('onCaptchaError')
         }
     </script>
     <script src="https://www.google.com/recaptcha/api.js?onload=onCaptchaLoad" async defer></script>
